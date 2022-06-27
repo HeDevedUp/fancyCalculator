@@ -1,25 +1,76 @@
-## Description
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-**Task:** https://github.com/microverseinc/curriculum-react-redux/blob/main/math-magicians/project_setup.md
+# Leaderboard App
 
-This PR makes the following changes:
--  Sets up the GitHub Actions and the [Stylelint](https://stylelint.io/), and [ESLint](https://eslint.org/) linters
--  Sets up the Webpack configuration files and builds scripts
+> This is an app that allows users to add theirs scores to the Leaderboard API.
 
-## Type of change
-- [X] created a react app with  npx create-react-app my-app
-- [X] added linters for react module 
-- [X] refactored the code base added a component folder
-- [X] Bug fix (non-breaking change which fixes an issue)
-- [X] New feature (non-breaking change which adds functionality)
-- [X] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [X] 
+## Built With
 
-## Checklist:
+- **Languages:**
+  - HTML5 & CSS3
+  - JavaScript
 
-- [X] My code follows the style guidelines of this project (no linters errors)
-- [X] I have checked my code and corrected any misspellings
-- [X] I have commented on my code
-- [X] I have deleted any unused code as comments in my codebase
+- **Preprocessors:**
+  - Css
+  - Tailwind
+
+- **Framework:**
+  - React
+  - Next js
+
+- **Conventions and Methodologies:**
+  - TTD
+  - MVP pattern
+
+## Getting Started
+
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+- Web Browser (e.g. Firefox, Chrome, Edge)
+- NPM (Node Package Manager)
+
+### Setup
+
+Download the code from this repository.
+
+### Install
+
+1- Install the project dependencies using this command on the root project directory:
+
+```console
+$ npm install
+```
+
+2- Then, run this command to build the application's code:
+
+```console
+$ npm run dev
+```
+
+### Usage
+ npm run dev
 
 
+## Authors
+
+👤 **Jesse Uzoma**
+
+- GitHub: [@HeDevedUp](https://github.com/HeDeved)
+- Twitter: [@devtochi](https://twitter.com/devtochi)
+- LinkedIn: [jesse uzoma](https://linkedin.com/in/jesseuzoma/)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
