@@ -11,7 +11,8 @@
   - JavaScript
 
 - **Preprocessors:**
-  - Sass
+  - Css
+  - Tailwind
 
 - **Framework:**
   - React
