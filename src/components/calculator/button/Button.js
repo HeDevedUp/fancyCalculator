@@ -1,7 +1,7 @@
-
-import React, { Component } from 'react'
-import PropTypes from "prop-types";
-import './Button.css'
+/* eslint-disable */
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import './Button.css';
 
 export default class Button extends Component {
     static PropTypes = {
@@ -12,24 +12,11 @@ export default class Button extends Component {
 
     render() {
         return (
-            <button className={this.props.className} onClick={this.props.OnClick}>
+
+            <button type="button" className={this.props.className} onClick={this.props.OnClick}>
+
                 {this.props.value}
             </button>
-        )
+        );
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
