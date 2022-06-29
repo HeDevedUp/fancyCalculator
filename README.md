@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Leaderboard App
+# Math Magician  App
 
 > This is an app that allows users to add theirs scores to the Leaderboard API.
 
