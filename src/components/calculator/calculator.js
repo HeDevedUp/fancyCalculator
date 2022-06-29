@@ -20,6 +20,7 @@ export default class App extends Component {
     [1, 2, 3, '/'],
     [0, '.', '='],
   ];
+  
 
   handleClick = (buttonName) => {
     this.setState(calculate(this.state, buttonName));

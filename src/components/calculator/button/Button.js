@@ -15,9 +15,14 @@ export default class Button extends React.Component {
     };
 
     render() {
+        const className =[ 
+             this.props.equals?" equals":"",
+             this.props.orangee?" orangee":""
+
+        ]
         return (
 
-            <button onClick={this.handleClick}>{this.props.name}</button>
+            <button className={className.join(" ").trim()} onClick={this.handleClick}>{this.props.name}</button>
 
         );
     }
