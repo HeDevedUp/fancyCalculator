@@ -7,7 +7,7 @@ import './calculator.css';
 
 export default class App extends Component {
   btnValues = [
-    ['AC', '+-', '%', '+'],
+    ['AC', '+/-', '%', '+'],
     [7, 8, 9, 'X'],
     [4, 5, 6, '-'],
     [1, 2, 3, '/'],
