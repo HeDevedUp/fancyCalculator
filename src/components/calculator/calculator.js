@@ -17,7 +17,6 @@ function calculator() {
 
   const handleClick = (buttonName) => {
     const updatedState = calculate(state, buttonName)
-    console.log(updatedState)
     setState(updatedState)
   }
 
