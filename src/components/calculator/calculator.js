@@ -20,7 +20,7 @@ function calculator() {
     setState(updatedState)
   }
 
-  const btnValues = [
+  const btn = [
     ['AC', '+/-', '%', '+'],
     [7, 8, 9, 'X'],
     [4, 5, 6, '-'],
