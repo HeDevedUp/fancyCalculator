@@ -1,11 +1,18 @@
+/* eslint-disable */
 import React, { Component } from 'react';
 import Header from '../header/header';
-import Button from './button/Button';
-import ButtonCard from './button/ButtonCard';
+import Button from './button/ButtonCard';
 import ButtonValue from './button/ButtonScreen';
 import './calculator.css';
+import calculate from './logic/calculate';
 
 export default class App extends Component {
+  state = {
+    total: null,
+    next: null,
+    operation: null,
+  }
+
   btnValues = [
     ['AC', '+/-', '%', '+'],
     [7, 8, 9, 'X'],
@@ -13,27 +20,21 @@ export default class App extends Component {
     [1, 2, 3, '/'],
     [0, '.', '='],
   ];
+  
+
+  handleClick = (buttonName) => {
+    this.setState(calculate(this.state, buttonName));
+  }
 
   render() {
     return (
       <>
         <Header />
         <div className="wrapper">
-          <ButtonValue value="0" />
-          <ButtonCard>
-            {this.btnValues.flat().map((btn) => (
-              <Button
-                key={btn}
-                className={btn === '=' ? 'equals' : ''}
-                value={btn}
-                OnClick={() => {
-                  alert('lol');
-                }}
-              />
-
-            ))}
-
-          </ButtonCard>
+          <ButtonValue value={this.state.next || this.state.total || '0'} />
+          <Button
+            clickHandler={this.handleClick}
+          />
         </div>
 
       </>

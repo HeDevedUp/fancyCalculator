@@ -1,22 +1,29 @@
 /* eslint-disable */
-import React, { Component } from 'react';
+
+import React from 'react';
 import PropTypes from 'prop-types';
 import './Button.css';
 
-export default class Button extends Component {
-    static PropTypes = {
-        className: PropTypes.string,
-        value: PropTypes.string,
-        OnClick: PropTypes.func,
-    }
+export default class Button extends React.Component {
+    static propTypes = {
+        name: PropTypes.string,
+        clickHandler: PropTypes.func,
+    };
+
+    handleClick = () => {
+        this.props.clickHandler(this.props.name);
+    };
 
     render() {
+        const className =[ 
+             this.props.equals?" equals":"",
+             this.props.orangee?" orangee":""
+
+        ]
         return (
 
-            <button type="button" className={this.props.className} onClick={this.props.OnClick}>
+            <button className={className.join(" ").trim()} onClick={this.handleClick}>{this.props.name}</button>
 
-                {this.props.value}
-            </button>
         );
     }
 }
