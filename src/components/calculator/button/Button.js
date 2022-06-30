@@ -6,7 +6,7 @@ function Button({
     name, clickHandler, equals, orangee,
 }) {
     const handleClick = () => {
-        clickHandler({ name });
+        clickHandler(name);
     };
     const className = [
         equals ? 'equals' : '',
