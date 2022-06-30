@@ -14,8 +14,11 @@ function calculator() {
     next: null,
     operation: null,
   })
+
   const handleClick = (buttonName) => {
-    setState(calculate(state, buttonName))
+    const updatedState = calculate(state, buttonName)
+    console.log(updatedState)
+    setState(updatedState)
   }
 
   const btnValues = [
@@ -25,7 +28,7 @@ function calculator() {
     [1, 2, 3, '/'],
     [0, '.', '='],
   ];
-  
+
 
   return (
     <>

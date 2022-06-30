@@ -1,8 +1,8 @@
 import Big from 'big.js';
 
 export default function operate(numberOne, numberTwo, operation) {
-  const one = Big(numberOne || '0');
-  const two = Big(numberTwo || (operation === '÷' || operation === 'x' ? '1' : '0')); // If dividing or multiplying, then 1 maintains current value in cases of null
+  const one = Big(numberOne);
+  const two = Big(numberTwo);
   if (operation === '+') {
     return one.plus(two).toString();
   }
@@ -13,11 +13,18 @@ export default function operate(numberOne, numberTwo, operation) {
     return one.times(two).toString();
   }
   if (operation === '÷') {
-    if (two === '0') {
-      alert('Divide by 0 error');
-      return '0';
+    try {
+      return one.div(two).toString();
+    } catch (err) {
+      return "Can't divide by 0.";
     }
-    return one.div(two).toString();
+  }
+  if (operation === '%') {
+    try {
+      return one.mod(two).toString();
+    } catch (err) {
+      return "Can't find modulo as can't divide by 0.";
+    }
   }
   throw Error(`Unknown operation '${operation}'`);
 }
