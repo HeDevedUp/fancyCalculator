@@ -1,19 +1,24 @@
 /* eslint-disable */
-import React, { Component } from 'react';
+import { useState } from 'react';
 import Header from '../header/header';
 import Button from './button/ButtonCard';
 import ButtonValue from './button/ButtonScreen';
 import './calculator.css';
 import calculate from './logic/calculate';
 
-export default class App extends Component {
-  state = {
+
+
+function calculator() {
+  const [state, setState] = useState({
     total: null,
     next: null,
     operation: null,
+  })
+  const handleClick = (buttonName) => {
+    setState(calculate(state, buttonName))
   }
 
-  btnValues = [
+  const btnValues = [
     ['AC', '+/-', '%', '+'],
     [7, 8, 9, 'X'],
     [4, 5, 6, '-'],
@@ -21,23 +26,20 @@ export default class App extends Component {
     [0, '.', '='],
   ];
 
-  handleClick = (buttonName) => {
-    this.setState(calculate(this.state, buttonName));
-  }
+  return (
+    <>
+      <Header />
+      <div className="wrapper">
+        <ButtonValue value={state.next || state.total || '0'} />
+        <Button
+          clickHandler={handleClick}
+        />
+      </div>
 
-  render() {
-    return (
-      <>
-        <Header />
-        <div className="wrapper">
-          <ButtonValue value={this.state.next || this.state.total || '0'} />
-          <Button
-            clickHandler={this.handleClick}
-          />
-        </div>
-
-      </>
-
-    );
-  }
+    </>
+  )
 }
+
+export default calculator
+
+
