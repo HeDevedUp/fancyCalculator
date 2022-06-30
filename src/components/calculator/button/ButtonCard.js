@@ -1,6 +1,5 @@
 import React from 'react';
 import Button from './Button';
-
 import './Button.css';
 
 function ButtonCard({ clickHandler }) {
@@ -8,7 +7,6 @@ function ButtonCard({ clickHandler }) {
     clickHandler(buttonName);
   };
 
- functional
   return (
     <div className="buttonBox">
 
@@ -37,44 +35,6 @@ function ButtonCard({ clickHandler }) {
       <Button name="=" clickHandler={handleClick} equals />
     </div>
   );
-
-  handleClick = (buttonName) => {
-    this.props.clickHandler(buttonName);
-  };
-
-  render() {
-    return (
-      <div className="buttonBox">
-
-        <Button name="AC" clickHandler={this.handleClick} />
-        <Button name="+/-" clickHandler={this.handleClick} />
-        <Button name="%" clickHandler={this.handleClick} />
-        <Button name="÷" clickHandler={this.handleClick} orangee/>
-
-
-        <Button name="7" clickHandler={this.handleClick} />
-        <Button name="8" clickHandler={this.handleClick} />
-        <Button name="9" clickHandler={this.handleClick} />
-        <Button name="x" clickHandler={this.handleClick} orangee/>
-
-        <Button name="4" clickHandler={this.handleClick} />
-        <Button name="5" clickHandler={this.handleClick} />
-        <Button name="6" clickHandler={this.handleClick} />
-        <Button name="-" clickHandler={this.handleClick} orangee/>
-
-        <Button name="1" clickHandler={this.handleClick} />
-        <Button name="2" clickHandler={this.handleClick} />
-        <Button name="3" clickHandler={this.handleClick} />
-        <Button name="+" clickHandler={this.handleClick} orangee/>
-
-        <Button name="0" clickHandler={this.handleClick} />
-        <Button name="." clickHandler={this.handleClick} />
-        <Button name="=" clickHandler={this.handleClick} equals/>
-
-      </div>
-    );
-  }
-
 }
 
 export default ButtonCard;
