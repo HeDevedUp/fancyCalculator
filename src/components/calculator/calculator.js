@@ -25,6 +25,7 @@ function calculator() {
     [1, 2, 3, '/'],
     [0, '.', '='],
   ];
+  
 
   return (
     <>
