@@ -1,14 +1,15 @@
-import Big from 'big.js';
-
 import operate from './operate';
-import isNumber from './isNumber';
+
+function isNumber(item) {
+  return !!item.match(/[0-9]+/);
+}
 
 /**
  * Given a button name and a calculator data object, return an updated
  * calculator data object.
  *
  * Calculator data object contains:
- *   total:String      the running total
+ *   total:s      the running total
  *   next:String       the next number to be operated on with the total
  *   operation:String  +, -, etc.
  */
@@ -27,16 +28,15 @@ export default function calculate(obj, buttonName) {
     }
     // If there is an operation, update next
     if (obj.operation) {
-      if (obj.next) {
-        return { next: obj.next + buttonName };
+      if (obj.next && obj.next !== '0') {
+        return { ...obj, next: obj.next + buttonName };
       }
-      return { next: buttonName };
+      return { ...obj, next: buttonName };
     }
     // If there is no operation, update next and clear the value
-    if (obj.next) {
-      const next = obj.next === '0' ? buttonName : obj.next + buttonName;
+    if (obj.next && obj.next !== '0') {
       return {
-        next,
+        next: obj.next + buttonName,
         total: null,
       };
     }
@@ -46,36 +46,23 @@ export default function calculate(obj, buttonName) {
     };
   }
 
-  if (buttonName === '%') {
-    if (obj.operation && obj.next) {
-      const result = operate(obj.total, obj.next, obj.operation);
-      return {
-        total: Big(result)
-          .div(Big('100'))
-          .toString(),
-        next: null,
-        operation: null,
-      };
-    }
-    if (obj.next) {
-      return {
-        next: Big(obj.next)
-          .div(Big('100'))
-          .toString(),
-      };
-    }
-    return {};
-  }
-
   if (buttonName === '.') {
     if (obj.next) {
-      // ignore a . if the next number already has one
       if (obj.next.includes('.')) {
+        return { ...obj };
+      }
+      return { ...obj, next: `${obj.next}.` };
+    }
+    if (obj.operation) {
+      return { ...obj, next: '0.' };
+    }
+    if (obj.total) {
+      if (obj.total.includes('.')) {
         return {};
       }
-      return { next: `${obj.next}.` };
+      return { ...obj, next: `${obj.total}.` };
     }
-    return { next: '0.' };
+    return { ...obj, next: '0.' };
   }
 
   if (buttonName === '=') {
@@ -92,10 +79,10 @@ export default function calculate(obj, buttonName) {
 
   if (buttonName === '+/-') {
     if (obj.next) {
-      return { next: (-1 * parseFloat(obj.next)).toString() };
+      return { ...obj, next: (-1 * parseFloat(obj.next)).toString() };
     }
     if (obj.total) {
-      return { total: (-1 * parseFloat(obj.total)).toString() };
+      return { ...obj, total: (-1 * parseFloat(obj.total)).toString() };
     }
     return {};
   }
@@ -108,8 +95,21 @@ export default function calculate(obj, buttonName) {
   //   return {};
   // }
 
+  // User pressed an operation after pressing '='
+  if (!obj.next && obj.total && !obj.operation) {
+    return { ...obj, operation: buttonName };
+  }
+
   // User pressed an operation button and there is an existing operation
   if (obj.operation) {
+    if (obj.total && !obj.next) {
+      return { ...obj, operation: buttonName };
+    }
+
+    if (!obj.total) {
+      return { total: 0, operation: buttonName };
+    }
+
     return {
       total: operate(obj.total, obj.next, obj.operation),
       next: null,

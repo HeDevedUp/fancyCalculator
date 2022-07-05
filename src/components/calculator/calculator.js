@@ -1,44 +1,48 @@
 /* eslint-disable */
-import React, { Component } from 'react';
+import { useState } from 'react';
 import Header from '../header/header';
 import Button from './button/ButtonCard';
 import ButtonValue from './button/ButtonScreen';
 import './calculator.css';
 import calculate from './logic/calculate';
 
-export default class App extends Component {
-  state = {
+
+
+function calculator() {
+  const [state, setState] = useState({
     total: null,
     next: null,
     operation: null,
+  })
+
+  const handleClick = (buttonName) => {
+    const updatedState = calculate(state, buttonName)
+    setState(updatedState)
   }
 
-  btnValues = [
+  const btn = [
     ['AC', '+/-', '%', '+'],
     [7, 8, 9, 'X'],
     [4, 5, 6, '-'],
     [1, 2, 3, '/'],
     [0, '.', '='],
   ];
-  
 
-  handleClick = (buttonName) => {
-    this.setState(calculate(this.state, buttonName));
-  }
 
-  render() {
-    return (
-      <>
-        <Header />
-        <div className="wrapper">
-          <ButtonValue value={this.state.next || this.state.total || '0'} />
-          <Button
-            clickHandler={this.handleClick}
-          />
-        </div>
+  return (
+    <>
+      <Header />
+      <div className="wrapper">
+        <ButtonValue value={state.next || state.total || '0'} />
+        <Button
+          clickHandler={handleClick}
+        />
+      </div>
 
-      </>
-
-    );
-  }
+    </>
+  )
 }
+
+export default calculator
+
+
