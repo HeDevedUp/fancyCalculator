@@ -1,15 +1,17 @@
 import React from 'react';
-import PageNavigation from './routes/router';
 import Header from './components/header/header';
+import Homepage from './components/Hompage/Homepage';
+import QoutePage from './components/QoutePage/QoutePage';
+import { BrowserRouter as Router, Switch, Route, } from "react-router-dom";
+
 
 function App() {
   return (
-    <>
+    <Router>
       <Header />
-      <PageNavigation />
-      <footer />
-    </>
+      <Route exact path="/" element={<Home />}> </Route>
 
+    </Router>
   );
 }
 
