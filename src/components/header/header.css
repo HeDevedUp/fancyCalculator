@@ -3,7 +3,7 @@
   flex-direction: row;
   background-color: #272b2c;
     justify-content: flex-end;
-    height: 20vh;
+    height: 10vh;
       
 
 }
@@ -18,6 +18,9 @@ margin-right: 100px;
 gap: 100px;
 justify-content: center;
 align-items: center;
+}
+li{
+  list-style: none;
 }
 .App-header-container li a{
   display: flex;
