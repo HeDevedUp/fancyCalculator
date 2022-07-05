@@ -1,34 +1,36 @@
-.App{
+.App {
   display: flex;
   flex-direction: row;
   background-color: #272b2c;
-    justify-content: flex-end;
-    height: 10vh;
-      
-
+  justify-content: flex-end;
+  height: 10vh;
 }
 
 .App-header {
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 }
-.App-header-container{
-display: flex;
-margin-right: 100px;
-gap: 100px;
-justify-content: center;
-align-items: center;
+
+.App-header-container {
+  display: flex;
+  margin-right: 100px;
+  gap: 100px;
+  justify-content: center;
+  align-items: center;
 }
-li{
+
+li {
   list-style: none;
 }
-.App-header-container li a{
+
+.App-header-container li a {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  list-style-type:none;
+  list-style-type: none;
   text-decoration: none;
-  }
+}
+
 .App-logo {
   height: 10vmin;
   pointer-events: painted;
@@ -42,7 +44,6 @@ li{
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
 
 .App-link {
   color: #61dafb;
