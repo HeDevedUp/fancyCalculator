@@ -1,8 +1,6 @@
-import React from 'react'
+import React from 'react';
 import './header.css';
-import { NavLink, } from 'react-router-dom'
-
-
+import { NavLink } from 'react-router-dom';
 
 const navigationLinks = [
   {
@@ -22,13 +20,12 @@ const navigationLinks = [
   },
 ];
 
-
 function header() {
   return (
     <>
       <div className="App">
         <nav className="App-header">
-          <ul className="App-header-container" >
+          <ul className="App-header-container">
             {navigationLinks.map(({ id, title, route }) => (
               <li key={id}>
                 <NavLink
@@ -46,13 +43,12 @@ function header() {
             ))}
 
           </ul>
-        </nav >
-      </div >
+        </nav>
+      </div>
 
     </>
 
-
-  )
+  );
 }
 
-export default header     
+export default header;
