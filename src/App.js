@@ -1,8 +1,15 @@
-import Calculator from './components/calculator/calculator';
+import React from 'react';
+import PageNavigation from './routes/router';
+import Header from './components/header/header';
 
 function App() {
   return (
-    <Calculator />
+    <>
+      <Header />
+      <PageNavigation />
+      <footer />
+    </>
+
   );
 }
 
