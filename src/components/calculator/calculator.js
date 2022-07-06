@@ -1,6 +1,5 @@
 /* eslint-disable */
 import { useState } from 'react';
-import Header from '../header/header';
 import Button from './button/ButtonCard';
 import ButtonValue from './button/ButtonScreen';
 import './calculator.css';
@@ -31,7 +30,7 @@ function calculator() {
 
   return (
     <>
-      <Header />
+
       <div className="wrapper">
         <ButtonValue value={state.next || state.total || '0'} />
         <Button

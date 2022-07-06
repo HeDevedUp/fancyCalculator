@@ -1,17 +1,15 @@
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Calculator from '../components/calculator/calculator';
-import Homepage from '../components/Hompage/Homepage';
-import QoutePage from '../components/QoutePage/QoutePage';
+import { Routes, Route } from 'react-router-dom';
+import Calculate from '../components/calculator/calculator';
+import HomePage from '../components/Hompage/Homepage';
+import QuotesPage from '../components/QoutePage/QoutePage';
 
 function Routing() {
   return (
-    <Router>
-
-      <Route path="/"><Homepage /></Route>
-      <Route path="/Calculator"><Calculator /></Route>
-      <Route path="/Qoutes"><QoutePage /></Route>
-
-    </Router>
+    <Routes>
+      <Route exact path="/" element={<HomePage />} />
+      <Route exact path="/calculator" element={<Calculate />} />
+      <Route exact path="/quotes" element={<QuotesPage />} />
+    </Routes>
 
   );
 }
