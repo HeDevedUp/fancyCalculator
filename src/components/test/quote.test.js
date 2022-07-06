@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Quote from './QoutePage';
+import Quote from '../QoutePage/QoutePage';
 
 test('renders correctly', () => {
   const tree = renderer

@@ -1,5 +1,5 @@
 import chai from 'chai';
-import calculate from './calculate';
+import calculate from '../calculator/logic/calculate';
 
 // https://github.com/chaijs/chai/issues/469
 chai.config.truncateThreshold = 0;
