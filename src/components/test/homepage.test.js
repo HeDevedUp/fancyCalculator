@@ -3,8 +3,8 @@ import renderer from 'react-test-renderer';
 import HomePage from '../Hompage/Homepage';
 
 test('renders correctly', () => {
-    const tree = renderer
-        .create(<HomePage />)
-        .toJSON();
-    expect(tree).toMatchSnapshot();
+  const tree = renderer
+    .create(<HomePage />)
+    .toJSON();
+  expect(tree).toMatchSnapshot();
 });
