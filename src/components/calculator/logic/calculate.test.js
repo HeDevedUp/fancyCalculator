@@ -20,6 +20,7 @@ function pressedButtons(buttons) {
     })
     return value;
 }
+
 function expectedButtons(buttons, expectations) {
     expect(pressedButtons(buttons)).to.deep.equal(expectations)
 
@@ -31,11 +32,57 @@ function test(buttons, expectations, only = false) {
     });
 
 }
-describe('calculate', function () {
+describe('checking for buttons AC,x,-,+,%', function () {
 
     test(["6"], { next: "6" })
+    test(['6', '6'], { next: "66" })
+    test(['6', '+', '6'], {
+        next: "6",
+        total: "6",
+        operation: "+",
 
+    })
+    test(['6', '-', '6'], {
+        next: "6",
+        total: "6",
+        operation: "-",
 
+    })
+    test(['6', '+', '6', '='], {
+        total: "12"
 
+    })
 
+    //when "=" is given little information
+    test(['6', "+", "=", "6", "="], {
+        total: "12",
+    });
+
+    // testing operation 
+    test(['+', '6'], {
+        next: "6",
+        operation: "+",
+    });
+    test(['-', '6'], {
+        next: "6",
+        operation: "-",
+    });
+
+    test(['x', '.', '6'], {
+        next: "0.6",
+        operation: "x",
+    });
+    test(['.', '4', '-', '.', '2'], {
+        total: "0.4",
+        next: "0.2",
+        operation: "-",
+    });
+
+    //should clear the operation when AC is pressed
+    test(['1', '.', '6', "AC"], {});
+    test(['4', '.', '89', '6', "AC"], {});
+    test(['2', 'x', '2', "%"], {
+        total: "4",
+        operation: '%',
+    });
 })
